@@ -32,39 +32,15 @@ function getYodish(stringToConvert){
   .then((data) => populateYodish(data))
 }
 
-//eventlistener that allows user to switch between the light and dark side
-lightDarkButton.addEventListener('click', function (e) {
-  e.preventDefault();
-
-  if(image1 === true) {
-    document.body.style.backgroundImage = "url('assets/SithYoda.png')";
-    //go to image2
-    image1 = false;
-    document.body.style.color = '#EB212E';
-    const newTitle = document.getElementById('title-text')
-    newTitle.textContent = 'Wise Words of Sith Yoda'
-  }
-  else if(image1 === false) {
-    document.body.style.backgroundImage = "url('assets/yoda1.jpg')";
-    //revert to image1
-    image1 = true;
-    document.body.style.color = '#2FF924';
-    const newTitle = document.getElementById('title-text')
-    newTitle.textContent = 'Wise Words of Master Yoda'
-  }
-})
-
 //populates yodish object with translated string
 const populateYodish = (data) => 
 {
-  console.log(data);
   let translated = data.contents.translated
   addYodishString(translated);
 }
 
 //adds translated string to page
 function addYodishString(string){
-  console.log(string);
   let stringToOutput = document.getElementById('output')
   stringToOutput.textContent = string
 
@@ -102,3 +78,26 @@ userTranslateButton.addEventListener('click', (e) =>
   e.preventDefault();
   getYodish(userTextBox.value);
 })
+
+//eventlistener that allows user to switch between the light and dark side
+lightDarkButton.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  if(image1 === true) {
+    document.body.style.backgroundImage = "url('assets/SithYoda.png')";
+    //go to image2
+    image1 = false;
+    document.body.style.color = '#EB212E';
+    const newTitle = document.getElementById('title-text')
+    newTitle.textContent = 'Wise Words of Sith Yoda'
+  }
+  else if(image1 === false) {
+    document.body.style.backgroundImage = "url('assets/yoda1.jpg')";
+    //revert to image1
+    image1 = true;
+    document.body.style.color = '#2FF924';
+    const newTitle = document.getElementById('title-text')
+    newTitle.textContent = 'Wise Words of Master Yoda'
+  }
+})
+
